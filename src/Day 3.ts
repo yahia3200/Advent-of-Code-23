@@ -105,7 +105,6 @@ for (let i = 0; i < n; i++) {
         }
 
         if (currentGear != null) {
-            //console.log(currentGear, currentValue);
             const key = currentGear.i + " " + currentGear.j;
             const arr = Gears.get(key);
             if (arr) {

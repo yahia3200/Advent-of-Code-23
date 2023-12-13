@@ -12,9 +12,9 @@ for (let i = 0; i < lines.length; i++) {
     const games = lines[i].split(":")[1].trim();
 
     const score = {
-        "red": 0,
-        "green": 0,
-        "blue": 0
+        red: 0,
+        green: 0,
+        blue: 0
     }
 
     for (let game of games.split(";")) {
@@ -24,8 +24,9 @@ for (let i = 0; i < lines.length; i++) {
         for (let color of colors) {
 
             color = color.trim();
-            const colorName = color.split(' ')[1];
+            const colorName = color.split(' ')[1] as keyof typeof score;
             const colorValue = Number(color.split(' ')[0]);
+
             score[colorName] = Math.max(score[colorName], colorValue);
         }
     }

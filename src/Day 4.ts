@@ -6,7 +6,7 @@ const lines = input.split("\n");
 const n = lines.length;
 let sum = 0;
 
-const freq: number[] = new Array(n + 1).fill(1);
+const freq = new Array(n + 1).fill(1);
 
 for (let i = 0; i < lines.length; i++) {
 
@@ -30,7 +30,6 @@ for (let i = 0; i < lines.length; i++) {
 }
 
 for (let i = 1; i <= n; i++) {
-    //console.log(freq[i]);
     sum += freq[i];
 }
 

@@ -20,14 +20,11 @@ let sum = 0;
 
 for (let i = 0; i < lines.length; i++) {
 
-    const foundNumbers = [];
-
-    // get current line
+    const foundNumbers: number[] = [];
     let line = lines[i];
 
     for (let j = 0; j < line.length; j++) {
 
-        // check if current char is a number
         const char = line[j];
 
         if (char >= "0" && char <= "9") {
@@ -44,15 +41,14 @@ for (let i = 0; i < lines.length; i++) {
         });
 
         if (number !== undefined) {
-            // found a number
-            const digit = numbers[number];
-
+            const digit = numbers[number as keyof typeof numbers];
             foundNumbers.push(digit);
         }
 
     }
 
-    sum += 10 * foundNumbers.at(0) + foundNumbers.at(-1);
+    sum += 10 * foundNumbers[0] + foundNumbers[foundNumbers.length - 1]
+
 
 }
 
