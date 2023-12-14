@@ -9,6 +9,18 @@ const currentNodes: string[] = [];
 const endNodes: string[] = [];
 const n = instructions.length;
 
+const gcd = (a: number, b: number): number => {
+    if (b == 0) {
+        return a;
+    }
+
+    return gcd(b, a % b);
+}
+
+const lcm = (a: number, b: number): number => {
+    return (a * b) / gcd(a, b);
+}
+
 for (let line of lines.slice(1)) {
     line = line.replace(/[(),]/g, "")
     const node = line.split("=")[0].trim();
@@ -57,18 +69,6 @@ for (let j = 0; j < currentNodes.length; j++) {
         i = (i + 1) % n;
         cycle++;
     }
-}
-
-const gcd = (a: number, b: number): number => {
-    if (b == 0) {
-        return a;
-    }
-
-    return gcd(b, a % b);
-}
-
-const lcm = (a: number, b: number): number => {
-    return (a * b) / gcd(a, b);
 }
 
 res = cycles.reduce((a, b) => lcm(a, b));
